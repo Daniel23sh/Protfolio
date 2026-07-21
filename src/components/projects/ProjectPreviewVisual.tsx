@@ -1,4 +1,5 @@
 import type { Project } from "@/types/portfolio";
+import { ProjectPosterPreview } from "@/components/projects/ProjectPosterPreview";
 
 type ProjectPreviewVisualProps = {
   placeholderLabel: string;
@@ -9,6 +10,18 @@ export function ProjectPreviewVisual({
   placeholderLabel,
   project,
 }: ProjectPreviewVisualProps) {
+  if (project.poster) {
+    return (
+      <ProjectPosterPreview
+        projectName={project.poster.projectName}
+        posterSrc={project.poster.src}
+        posterAlt={project.poster.alt}
+        posterWidth={project.poster.width}
+        posterHeight={project.poster.height}
+      />
+    );
+  }
+
   return (
     <div
       role="img"

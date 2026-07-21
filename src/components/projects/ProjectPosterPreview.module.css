@@ -1,0 +1,297 @@
+.posterPreview {
+  --poster-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  height: clamp(12rem, 24vw, 15rem);
+}
+
+.trigger {
+  display: grid;
+  height: 100%;
+  cursor: pointer;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 0.45rem;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  text-align: left;
+  transition: transform 220ms var(--poster-ease);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 0.35rem;
+}
+
+.thumbnailFrame {
+  display: block;
+  height: 100%;
+  aspect-ratio: var(--poster-ratio);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  border-radius: 0.85rem;
+  background: var(--color-surface);
+  padding: 0.28rem;
+  box-shadow: 0 8px 22px rgb(23 32 51 / 9%);
+  transition:
+    border-color 220ms var(--poster-ease),
+    box-shadow 220ms var(--poster-ease);
+}
+
+.posterThumbnail,
+.posterPlaceholder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.56rem;
+}
+
+.posterThumbnail {
+  object-fit: cover;
+}
+
+.posterCaption {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.55rem;
+  color: var(--color-ink);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.posterCaption svg {
+  width: 0.95rem;
+  height: 0.95rem;
+  color: var(--color-accent);
+  transition: transform 220ms var(--poster-ease);
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  transform: translateY(-0.22rem);
+}
+
+.trigger:hover .thumbnailFrame,
+.trigger:focus-visible .thumbnailFrame {
+  border-color: var(--color-accent);
+  box-shadow: 0 14px 30px rgb(23 32 51 / 14%);
+}
+
+.trigger:hover .posterCaption svg,
+.trigger:focus-visible .posterCaption svg {
+  transform: translate(0.12rem, -0.12rem);
+}
+
+.posterDialog {
+  width: min(720px, calc(100vw - 2rem));
+  max-width: min(720px, calc(100vw - 2rem));
+  max-height: calc(100dvh - 4rem);
+  margin: auto;
+  overflow: visible;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(0.5rem);
+  transition:
+    opacity 180ms ease-out,
+    transform 180ms ease-out,
+    display 180ms allow-discrete,
+    overlay 180ms allow-discrete;
+}
+
+.posterDialog[open] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.posterDialog.closing {
+  opacity: 0;
+  transform: translateY(0.35rem);
+  transition-duration: 160ms;
+  transition-timing-function: ease-in;
+}
+
+.posterDialog::backdrop {
+  background: rgb(23 32 51 / 0%);
+  backdrop-filter: blur(0);
+  transition:
+    background-color 180ms ease-out,
+    backdrop-filter 180ms ease-out,
+    display 180ms allow-discrete,
+    overlay 180ms allow-discrete;
+}
+
+.posterDialog[open]::backdrop {
+  background: rgb(23 32 51 / 62%);
+  backdrop-filter: blur(3px);
+}
+
+.posterDialog.closing::backdrop {
+  background: rgb(23 32 51 / 0%);
+  backdrop-filter: blur(0);
+  transition-duration: 160ms;
+  transition-timing-function: ease-in;
+}
+
+.posterLightbox {
+  position: relative;
+  display: grid;
+  max-height: calc(100dvh - 4rem);
+  overflow: hidden;
+  border: 1px solid rgb(248 246 241 / 18%);
+  border-radius: 1rem;
+  background: var(--color-ink);
+  padding: clamp(2.9rem, 5vw, 3.75rem) clamp(0.65rem, 2vw, 1.25rem) clamp(0.65rem, 2vw, 1.25rem);
+  box-shadow: 0 24px 80px rgb(23 32 51 / 42%);
+}
+
+.closeButton {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.7rem;
+  z-index: 2;
+  display: inline-grid;
+  width: 2.75rem;
+  height: 2.75rem;
+  place-items: center;
+  cursor: pointer;
+  border: 1px solid rgb(248 246 241 / 36%);
+  border-radius: 999px;
+  background: rgb(23 32 51 / 92%);
+  color: var(--color-on-dark);
+  transition:
+    border-color 160ms ease,
+    color 160ms ease,
+    background-color 160ms ease;
+}
+
+.closeButton:hover {
+  border-color: var(--color-accent);
+  color: var(--color-on-dark);
+}
+
+.closeButton:focus-visible {
+  outline: 3px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.closeButton svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.posterModalCopy {
+  position: absolute;
+  top: 1rem;
+  left: 1.1rem;
+  display: grid;
+  gap: 0.06rem;
+  color: var(--color-on-dark);
+}
+
+.posterModalCopy p,
+.posterModalCopy span {
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-on-dark) 70%, transparent);
+}
+
+.posterModalCopy h2 {
+  font-size: 0.88rem;
+  font-weight: 700;
+}
+
+.posterModalCopy span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.posterFrame {
+  display: grid;
+  min-height: 12rem;
+  place-items: center;
+}
+
+.posterImage {
+  display: block;
+  width: auto;
+  max-width: min(720px, calc(100vw - 4rem));
+  height: auto;
+  max-height: calc(100dvh - 9rem);
+  object-fit: contain;
+}
+
+.posterPlaceholder {
+  display: grid;
+  min-height: 18rem;
+  align-content: end;
+  gap: 0.45rem;
+  background: var(--color-surface-warm);
+  padding: 1rem;
+  color: var(--color-ink);
+}
+
+.posterPlaceholder span {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.posterPlaceholder strong {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 0.95;
+}
+
+@starting-style {
+  .posterDialog[open] {
+    opacity: 0;
+    transform: translateY(0.5rem);
+  }
+
+  .posterDialog[open]::backdrop {
+    background: rgb(23 32 51 / 0%);
+    backdrop-filter: blur(0);
+  }
+}
+
+@media (max-width: 39.999rem) {
+  .posterPreview {
+    height: clamp(12rem, 56vw, 14.5rem);
+  }
+
+  .posterDialog {
+    width: calc(100vw - 2rem);
+  }
+
+  .posterLightbox {
+    max-height: calc(100dvh - 4rem);
+  }
+
+  .posterImage {
+    max-width: calc(100vw - 4rem);
+    max-height: calc(100dvh - 8rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .thumbnailFrame,
+  .posterCaption svg,
+  .posterDialog,
+  .posterDialog::backdrop,
+  .closeButton {
+    transition: none;
+  }
+}

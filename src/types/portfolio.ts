@@ -6,6 +6,14 @@ export type ProjectLink = {
   readonly external?: boolean;
 };
 
+export type ProjectPoster = {
+  readonly projectName: string;
+  readonly src: string;
+  readonly alt: string;
+  readonly width: number;
+  readonly height: number;
+};
+
 export type ProjectPreviewType =
   | "browser"
   | "mobile"
@@ -109,6 +117,7 @@ export type Project = {
     readonly src: string;
     readonly alt: string;
   };
+  readonly poster?: ProjectPoster;
   readonly caseStudy: ProjectCaseStudy;
   readonly links: readonly ProjectLink[];
 };

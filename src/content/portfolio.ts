@@ -72,6 +72,30 @@ export const projectsSectionContent = {
   },
 } as const;
 
+const queryOpsProductPoster = {
+  projectName: "QueryOps AI",
+  src: "/images/project-posters/queryops-product-poster.png",
+  alt: "QueryOps AI product poster",
+  width: 864,
+  height: 1821,
+} as const;
+
+const checkItProductPoster = {
+  projectName: "CheckIT",
+  src: "/images/project-posters/checkit-product-poster.png",
+  alt: "CheckIT product poster",
+  width: 941,
+  height: 1672,
+} as const;
+
+const whatsappBotProductPoster = {
+  projectName: "WhatsApp Google Calendar Bot",
+  src: "/images/project-posters/whatsapp-bot-product-poster.png",
+  alt: "WhatsApp Google Calendar Bot product poster",
+  width: 1024,
+  height: 1535,
+} as const;
+
 export const coreToolkitContent = {
   heading: "Core Toolkit",
   supportingText: "A focused stack I use across products.",
@@ -267,6 +291,7 @@ export const projects = [
       src: "/images/projects/queryops/cover.png",
       alt: "QueryOps AI dashboard preview",
     },
+    poster: queryOpsProductPoster,
     caseStudy: {
       projectLabel: "Full-Stack Project",
       facts: [
@@ -376,6 +401,7 @@ export const projects = [
       src: "/images/projects/checkit/cover.png",
       alt: "CheckIT mobile product preview",
     },
+    poster: checkItProductPoster,
     caseStudy: {
       projectLabel: "Product Leadership",
       category: "EdTech · Adaptive Practice",
@@ -492,6 +518,7 @@ export const projects = [
       src: "/images/projects/whatsapp-bot/calendar-bot-hero.webp",
       alt: "Offline WhatsApp calendar bot demo interface",
     },
+    poster: whatsappBotProductPoster,
     caseStudy: {
       projectLabel: "Prototype",
       facts: [
