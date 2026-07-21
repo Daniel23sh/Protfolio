@@ -1,4 +1,6 @@
+import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
+import { Contact } from "@/components/sections/Contact";
 import { Education } from "@/components/sections/Education";
 import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
@@ -15,7 +17,9 @@ export default function Home() {
         <WayIBuild />
         <Experience />
         <Education />
+        <Contact />
       </main>
+      <Footer />
     </>
   );
 }

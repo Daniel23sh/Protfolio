@@ -193,6 +193,39 @@ export const educationSectionContent = {
   ],
 } as const satisfies EducationSectionContent;
 
+export const contactSectionContent = {
+  eyebrow: "Contact",
+  heading: "Let’s start with a hello.",
+  supportingText:
+    "Have an opportunity, project, or idea in mind? I’d be glad to hear about it.",
+  conversationLabel: "Start a conversation",
+  email: "shatzovdani@gmail.com",
+  availability: "Open to new opportunities",
+  resumeCallout: {
+    eyebrow: "Take a copy",
+    title: "Download my resume",
+    metadata: "PDF · Updated 2026",
+    accessibleLabel: "Download Daniel Shatzov’s resume as a PDF",
+  },
+  links: [
+    {
+      label: "LinkedIn",
+      href: siteConfig.linkedinUrl,
+      kind: "external",
+    },
+    {
+      label: "GitHub",
+      href: siteConfig.githubUrl,
+      kind: "external",
+    },
+    {
+      label: "Download Resume",
+      href: siteConfig.resumeUrl,
+      kind: "download",
+    },
+  ],
+} as const;
+
 export const projects = [
   {
     id: "queryops",
