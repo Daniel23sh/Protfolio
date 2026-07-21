@@ -210,7 +210,7 @@ export function Header() {
 
           <a
             href={siteConfig.contactCta.href}
-            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-button bg-accent px-4 text-sm font-semibold text-on-dark transition-colors hover:bg-ink"
+            className="inline-flex min-h-11 items-center justify-center whitespace-nowrap rounded-button bg-accent px-4 text-sm font-semibold text-on-dark transition-colors hover:bg-accent-hover"
           >
             {siteConfig.contactCta.label}
           </a>
@@ -293,7 +293,7 @@ export function Header() {
               <a
                 href={siteConfig.contactCta.href}
                 onClick={closeMenu}
-                className="inline-flex min-h-12 items-center justify-center rounded-button bg-accent px-4 text-sm font-semibold text-on-dark transition-colors hover:bg-ink"
+                className="inline-flex min-h-12 items-center justify-center rounded-button bg-accent px-4 text-sm font-semibold text-on-dark transition-colors hover:bg-accent-hover"
               >
                 {siteConfig.contactCta.label}
               </a>

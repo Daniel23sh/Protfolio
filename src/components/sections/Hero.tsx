@@ -37,7 +37,7 @@ export function Hero() {
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
             <a
               href={siteConfig.primaryCta.href}
-              className="inline-flex min-h-12 w-full items-center justify-center rounded-button bg-accent px-6 py-3 text-base font-semibold text-on-dark transition-colors hover:bg-ink sm:w-auto"
+              className="inline-flex min-h-12 w-full items-center justify-center rounded-button bg-accent px-6 py-3 text-base font-semibold text-on-dark transition-colors hover:bg-accent-hover sm:w-auto"
             >
               {siteConfig.primaryCta.label}
             </a>

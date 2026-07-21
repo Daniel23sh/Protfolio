@@ -49,8 +49,15 @@ export const projectsSectionContent = {
   placeholderLabel: "Screenshot coming soon",
   actionLabel: "View Project",
   modal: {
-    closeLabel: "Close",
-    overviewLabel: "Overview",
+    closeLabel: "Close project details",
+    featuredProjectLabel: "Featured project",
+    temporaryLabel: "Temporary content",
+    previewLabel: "Product preview",
+    storyLabel: "Project story",
+    problemLabel: "Problem",
+    buildLabel: "Build",
+    outcomeLabel: "Outcome",
+    proofLabel: "Technical proof",
     linksLabel: "Project Links",
   },
   labels: {
@@ -59,9 +66,34 @@ export const projectsSectionContent = {
     status: "Status",
     visibility: "Visibility",
     technologies: "Technologies",
-    architectureTrace: "Architecture Trace",
+    capabilities: "Capabilities",
+    architectureTrace: "Project Flow",
     builtAround: "Built Around",
   },
+} as const;
+
+const queryOpsProductPoster = {
+  projectName: "QueryOps AI",
+  src: "/images/project-posters/queryops-product-poster.png",
+  alt: "QueryOps AI product poster",
+  width: 864,
+  height: 1821,
+} as const;
+
+const checkItProductPoster = {
+  projectName: "CheckIT",
+  src: "/images/project-posters/checkit-product-poster.png",
+  alt: "CheckIT product poster",
+  width: 941,
+  height: 1672,
+} as const;
+
+const whatsappBotProductPoster = {
+  projectName: "WhatsApp Google Calendar Bot",
+  src: "/images/project-posters/whatsapp-bot-product-poster.png",
+  alt: "WhatsApp Google Calendar Bot product poster",
+  width: 1024,
+  height: 1535,
 } as const;
 
 export const coreToolkitContent = {
@@ -230,14 +262,14 @@ export const projects = [
   {
     id: "queryops",
     number: "01",
-    title: "QueryOps AI",
-    subtitle: "Data & Operations Platform",
+    title: "QueryOps",
+    subtitle: "IT Operations · Data Governance",
     role: "Founder, Product Lead & Full-Stack Developer",
     duration: "May 2026 – Present",
     status: "Active Development",
     visibility: "Public",
     summary:
-      "A governed data workspace that turns natural-language questions into validated SQL insights, reusable dashboards, and controlled operational actions.",
+      "A governed conversational data workspace for exploring IT operations data, saving reusable views, and routing sensitive actions through approvals and audit trails.",
     technologies: [
       "React",
       "TypeScript",
@@ -259,9 +291,80 @@ export const projects = [
       src: "/images/projects/queryops/cover.png",
       alt: "QueryOps AI dashboard preview",
     },
+    poster: queryOpsProductPoster,
+    caseStudy: {
+      projectLabel: "Full-Stack Project",
+      facts: [
+        "Personal full-stack project",
+        "IT Operations / data governance",
+        "React, TypeScript, FastAPI, PostgreSQL",
+      ],
+      theme: "blue",
+      preview: {
+        type: "queryops",
+      },
+      story: {
+        problem: {
+          body: "Operational teams need answers from structured data, but direct database access can be unsafe, too technical, or too broad. A simple natural-language query interface is not enough when results must respect scope, permissions, and operational controls.",
+        },
+        build: {
+          body: "QueryOps brings the governed workflow into one clear path: ask a scoped question, review a safe result, save a useful view, and route sensitive follow-up actions through approval and audit. The experience keeps controls visible without letting them overpower the task.",
+        },
+        outcome: {
+          body: "QueryOps demonstrates an end-to-end governed data workflow: investigate a scoped operational question, review a safe result, then request and track a controlled action with approval and auditability.",
+          qualifier:
+            "Locally runnable demo using deterministic synthetic IT Operations data and a mock LLM provider — not a production deployment.",
+        },
+      },
+      proof: {
+        label: "Architecture flow",
+        flow: [
+          "Ask Data",
+          "Policy Guardrails",
+          "Query Engine",
+          "Saved Views",
+          "Governed Actions",
+        ],
+        steps: [
+          {
+            label: "Ask Data",
+            detail: "Scoped question",
+            icon: "ask-data",
+          },
+          {
+            label: "Policy Guardrails",
+            detail: "Role + RLS scope",
+            icon: "guardrails",
+          },
+          {
+            label: "Query Engine",
+            detail: "Validate + execute",
+            icon: "query-engine",
+          },
+          {
+            label: "Saved Views",
+            detail: "Dashboards + cards",
+            icon: "saved-views",
+          },
+          {
+            label: "Governed Actions",
+            detail: "Approval + audit",
+            icon: "governed-actions",
+          },
+        ],
+        capabilities: [
+          "Validated SQL",
+          "Role-aware access",
+          "Saved views",
+          "Approvals",
+          "Audit trail",
+        ],
+        note: "Scoped read-only queries and controlled operational actions are enforced server-side.",
+      },
+    },
     links: [
       {
-        label: "GitHub",
+        label: "View source on GitHub",
         href: "https://github.com/Daniel23sh/queryops-ai",
         external: true,
       },
@@ -298,26 +401,110 @@ export const projects = [
       src: "/images/projects/checkit/cover.png",
       alt: "CheckIT mobile product preview",
     },
+    poster: checkItProductPoster,
+    caseStudy: {
+      projectLabel: "Product Leadership",
+      category: "EdTech · Adaptive Practice",
+      facts: [
+        "Lead Full-Stack Developer",
+        "Early-stage EdTech startup",
+        "Jan 2026 – Present",
+      ],
+      team: "2 developers + UX/UI designer",
+      statusAction: "Project in active development",
+      theme: "warm",
+      preview: {
+        type: "concept",
+        editorial: {
+          variant: "confidential",
+          eyebrow: "Early-stage product",
+          headline: "CHECKIT",
+          description: "",
+          flow: [],
+          status: "Confidential work",
+        },
+      },
+      story: {
+        problem: {
+          body: "Building an adaptive practice experience requires more than an interface. Product decisions, user flows, technical constraints, and delivery priorities need to stay aligned while the product is still evolving.",
+        },
+        build: {
+          body: "The work centers on turning an evolving product idea into a structured, shared delivery process across product, design, and engineering.",
+          highlights: [
+            "Helped define the product direction, initial scope, and staged execution plan.",
+            "Translated product concepts into clear user flows, requirements, and development tasks.",
+            "Structured the backlog, milestones, dependencies, and implementation priorities.",
+            "Coordinated delivery between two developers and a UX/UI designer.",
+            "Maintained alignment across product, design, and technical decisions as the scope evolved.",
+            "Supported research, documentation, planning, and delivery through AI-assisted workflows.",
+          ],
+        },
+        outcome: {
+          body: "Established a structured product and delivery process for a private EdTech platform in active development, giving the team a clearer foundation for coordinated implementation and iteration.",
+          qualifier:
+            "The product remains private and under active development; this case study focuses on product definition, planning, and cross-functional delivery.",
+        },
+      },
+      proof: {
+        label: "Product delivery framework",
+        flow: [
+          "Product direction",
+          "User flows",
+          "Delivery planning",
+          "Cross-functional iteration",
+        ],
+        steps: [
+          {
+            label: "Product direction",
+            detail: "Scope + priorities",
+            icon: "product-direction",
+          },
+          {
+            label: "User flows",
+            detail: "Requirements + experience",
+            icon: "user-flows",
+          },
+          {
+            label: "Delivery planning",
+            detail: "Backlog + milestones",
+            icon: "delivery-planning",
+          },
+          {
+            label: "Cross-functional iteration",
+            detail: "Product + design + engineering",
+            icon: "cross-functional-iteration",
+          },
+        ],
+        capabilities: [
+          "Product strategy",
+          "Technical planning",
+          "Delivery management",
+          "AI-assisted workflow",
+        ],
+        note:
+          "A structured operating model for keeping product intent, design decisions, and implementation priorities aligned.",
+      },
+    },
     links: [],
   },
   {
     id: "whatsapp-calendar",
     number: "03",
     title: "WhatsApp Google Calendar Bot",
-    subtitle: "Secure Bilingual Calendar Assistant",
-    role: "Full-Stack Developer",
+    subtitle: "Conversational Productivity · Calendar Automation",
+    role: "Solo Full-Stack Developer",
     duration: "February 2026 – July 2026",
-    status: "Secure, Tested MVP",
+    status: "Functional prototype",
     visibility: "Public",
     summary:
-      "A secure bilingual WhatsApp assistant that converts Hebrew, English, and mixed-language text or voice messages into validated Google Calendar events.",
+      "A WhatsApp-based calendar assistant designed to make scheduling meetings feel as simple as sending a message, while safely clarifying incomplete or ambiguous details.",
     technologies: [
-      "Node.js",
+      "Node.js 22",
       "Fastify",
+      "Twilio WhatsApp",
+      "Google Calendar",
       "Supabase",
-      "Twilio",
-      "Google OAuth 2.0",
-      "OpenAI API",
+      "OAuth",
     ],
     architectureTrace: [
       "WhatsApp",
@@ -326,14 +513,90 @@ export const projects = [
       "Google Calendar",
     ],
     builtAround:
-      "Low-friction scheduling without sacrificing validation and safety.",
+      "Low-friction scheduling without silently guessing when important details are unclear.",
     image: {
-      src: "/images/projects/whatsapp-bot/cover.png",
-      alt: "WhatsApp calendar assistant conversation preview",
+      src: "/images/projects/whatsapp-bot/calendar-bot-hero.webp",
+      alt: "Offline WhatsApp calendar bot demo interface",
+    },
+    poster: whatsappBotProductPoster,
+    caseStudy: {
+      projectLabel: "Prototype",
+      facts: [
+        "Prototype",
+        "Conversational productivity / calendar automation",
+        "Node.js 22, Fastify, Twilio WhatsApp, Google Calendar, Supabase, OAuth",
+      ],
+      audience:
+        "People who commonly receive or describe appointment details through WhatsApp and want a faster way to turn those details into Calendar events, particularly Hebrew- and English-speaking users.",
+      theme: "warm",
+      preview: {
+        type: "whatsapp-calendar",
+      },
+      story: {
+        problem: {
+          body: "I built this project because scheduling meetings is a task I often postpone—it feels inconvenient, and it is easy to forget to add an appointment to my calendar. Since WhatsApp is already where many meeting details are discussed, I wanted creating a Calendar event to feel as simple as sending a message. The challenge was to keep that experience convenient while safely handling incomplete or ambiguous details.",
+        },
+        build: {
+          highlights: [
+            "Accepts Hebrew, English, and mixed-language Calendar requests.",
+            "Supports text messages and voice-transcript inputs.",
+            "Extracts structured event details and applies deterministic validation for time, duration, confidence, timezone, DST, and ambiguity.",
+            "Uses focused follow-up questions when a date, time, or morning/evening distinction is missing.",
+            "Creates one Google Calendar event after successful validation; the offline demo replaces external providers with deterministic local fixtures.",
+          ],
+        },
+        outcome: {
+          body: "The project demonstrates a complete conversation-to-calendar architecture with a deliberate safety boundary between probabilistic extraction and deterministic execution. Its offline demo makes the interaction, state transitions, and validation pipeline reviewable without credentials or external services.",
+          qualifier:
+            "Functional prototype with a local deterministic demo and production-oriented integration architecture.",
+        },
+      },
+      proof: {
+        label: "Calendar request flow",
+        flow: [
+          "WhatsApp / Twilio",
+          "Fastify application",
+          "Deterministic validation",
+          "Google Calendar",
+        ],
+        steps: [
+          {
+            label: "Message request",
+            detail: "Text or voice transcript",
+            icon: "calendar-request",
+          },
+          {
+            label: "Event proposal",
+            detail: "Structured extraction",
+            icon: "event-extraction",
+          },
+          {
+            label: "Validation boundary",
+            detail: "Time, DST + ambiguity",
+            icon: "event-validation",
+          },
+          {
+            label: "Calendar event",
+            detail: "Production integration path",
+            icon: "calendar-create",
+          },
+        ],
+        capabilities: [
+          "Deterministic validation",
+          "Guided clarification",
+          "Bilingual behavior",
+          "Shared pipeline",
+          "Offline demo",
+        ],
+        note:
+          "Production-oriented provider integrations and the credential-free demo share the event-processing pipeline; this portfolio preview remains entirely local.",
+        scope:
+          "The current scope is event creation only. It does not edit or delete events, detect conflicts, ask for confirmation before creation, cancel requests, retrieve upcoming meetings, or support multiple calendars.",
+      },
     },
     links: [
       {
-        label: "GitHub",
+        label: "View source on GitHub",
         href: "https://github.com/Daniel23sh/whatsapp-google-calendar-bot",
         external: true,
       },
