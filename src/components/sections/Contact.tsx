@@ -129,41 +129,43 @@ export function Contact() {
             </ul>
 
             {resumeLink ? (
-              <a
-                href={resumeLink.href}
-                download
-                aria-label={resumeCallout.accessibleLabel}
-                className={styles.resumeCallout}
-              >
-                <span aria-hidden="true" className={styles.resumeAccent} />
-
-                <span className={styles.resumeContent}>
-                  <span className={styles.resumeEyebrow}>
-                    <LuPaperclip
-                      aria-hidden="true"
-                      focusable="false"
-                      strokeWidth={1.25}
-                      className={styles.resumePaperclip}
-                    />
-                    <span>{resumeCallout.eyebrow}</span>
-                  </span>
-
-                  <span className={styles.resumeTitle}>
-                    {resumeCallout.title}
-                  </span>
-
-                  <span className={styles.resumeMeta}>
-                    {resumeCallout.metadata}
-                  </span>
-                </span>
-
-                <span
-                  aria-hidden="true"
-                  className={styles.resumeDownloadIcon}
+              <span className={styles.resumeFocusFrame}>
+                <a
+                  href={resumeLink.href}
+                  download
+                  aria-label={resumeCallout.accessibleLabel}
+                  className={styles.resumeCallout}
                 >
-                  <LuDownload aria-hidden="true" focusable="false" />
-                </span>
-              </a>
+                  <span aria-hidden="true" className={styles.resumeAccent} />
+
+                  <span className={styles.resumeContent}>
+                    <span className={styles.resumeEyebrow}>
+                      <LuPaperclip
+                        aria-hidden="true"
+                        focusable="false"
+                        strokeWidth={1.25}
+                        className={styles.resumePaperclip}
+                      />
+                      <span>{resumeCallout.eyebrow}</span>
+                    </span>
+
+                    <span className={styles.resumeTitle}>
+                      {resumeCallout.title}
+                    </span>
+
+                    <span className={styles.resumeMeta}>
+                      {resumeCallout.metadata}
+                    </span>
+                  </span>
+
+                  <span
+                    aria-hidden="true"
+                    className={styles.resumeDownloadIcon}
+                  >
+                    <LuDownload aria-hidden="true" focusable="false" />
+                  </span>
+                </a>
+              </span>
             ) : null}
           </div>
         </div>

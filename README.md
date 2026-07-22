@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Daniel Shatzov — Portfolio
 
-## Getting Started
+This repository contains Daniel Shatzov’s Full-Stack Developer portfolio. It presents selected work, professional experience, product thinking, and technical execution in a single responsive website.
 
-First, run the development server:
+## Preview
+
+A permanent full-site screenshot will be added when a stable public capture is available.
+
+## Live site
+
+Deployment URL will be added after the production domain is finalized.
+
+## About the project
+
+The site uses a warm, handmade editorial visual direction while keeping the work easy to scan. Project cards open into focused case studies, and compact poster presentations offer an additional way to introduce each project. The layout is responsive and includes accessible keyboard, dialog, focus, and reduced-motion behavior.
+
+## Featured work
+
+- **QueryOps AI** — governed data exploration and controlled operational workflows.
+- **CheckIT** — a private early-stage EdTech product case study.
+- **WhatsApp Google Calendar Bot** — a conversational calendar-event creation prototype with a deterministic local demo.
+
+## Technology stack
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS and CSS Modules
+- Node.js built-in test runner
+- GitHub Actions
+
+## Local development
+
+1. Clone the repository.
+2. Install dependencies:
+
+   ```bash
+   npm ci
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm run dev
+   ```
+
+4. Open [http://localhost:3000](http://localhost:3000).
+
+## Available scripts
+
+| Command | Purpose |
+| --- | --- |
+| `npm run dev` | Start the Next.js development server. |
+| `npm run lint` | Run ESLint. |
+| `npm run typecheck` | Run TypeScript without emitting files. |
+| `npm test` | Run the Node.js test suite once. |
+| `npm run build` | Create a production build. |
+| `npm run start` | Start the production server after a successful build. |
+
+The test command uses Node’s built-in test runner with a small repository-owned resolver. It lets the test runner load the existing extensionless TypeScript source imports in ESM without a global tool or machine-specific path.
+
+## Accessibility
+
+- Keyboard-accessible skip link targeting the existing semantic main landmark.
+- Semantic page landmarks and visible keyboard focus states.
+- Accessible project dialogs with Escape handling and focus restoration.
+- Reduced-motion support.
+- High-contrast résumé-card text and an unclipped keyboard focus treatment.
+
+## Metadata and SEO
+
+The app includes Open Graph metadata, Twitter metadata, Person JSON-LD, and a robots configuration. Set a confirmed production origin during deployment to enable absolute social URLs:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+SITE_URL=https://your-final-domain.example
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This is an example, not a live URL. A confirmed deployment origin is still required before canonical URLs and a sitemap should be added.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Repository checks
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+GitHub Actions runs on pull requests and pushes to `main`. It installs dependencies with `npm ci`, then runs linting, type-checking, tests, and the production build.

@@ -103,6 +103,9 @@ export default function RootLayout({
       className={`${inter.variable} ${ebGaramond.variable}`}
     >
       <body>
+        <a className="skip-link" href="#main-content">
+          Skip to main content
+        </a>
         <PortfolioBackground />
         <div className="site-content">{children}</div>
         <script
