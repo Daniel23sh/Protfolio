@@ -212,6 +212,7 @@
 }
 
 .resumeCallout {
+  --resume-ink: #151d2e;
   position: relative;
   isolation: isolate;
   display: grid;
@@ -220,7 +221,7 @@
   min-height: 7.125rem;
   align-items: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 0;
   padding: 1.25rem 1.25rem 1.35rem 1.5rem;
   background:
     radial-gradient(circle at 18% 28%, rgb(244 239 232 / 9%) 0 0.6px, transparent 0.8px),
@@ -228,7 +229,7 @@
     linear-gradient(122deg, rgb(244 239 232 / 5%), transparent 38%),
     var(--color-accent-warm);
   background-size: 10px 10px, 13px 13px, auto, auto;
-  color: var(--color-ink);
+  color: var(--resume-ink);
   clip-path: polygon(
     0 2.4%,
     3% 1.2%,
@@ -270,6 +271,12 @@
     transform 180ms ease-out;
 }
 
+.resumeFocusFrame {
+  position: relative;
+  display: block;
+  margin-top: 3rem;
+}
+
 .resumeAccent {
   display: none;
 }
@@ -285,7 +292,7 @@
   width: fit-content;
   align-items: center;
   gap: 0.5rem;
-  color: var(--color-ink);
+  color: var(--resume-ink);
   font-family: var(--font-inter);
   font-size: 0.75rem;
   font-weight: 600;
@@ -303,7 +310,7 @@
 
 .resumeTitle {
   margin-top: 0.25rem;
-  color: var(--color-ink);
+  color: var(--resume-ink);
   font-family: var(--font-eb-garamond);
   font-size: clamp(1.75rem, 7.5vw, 2rem);
   font-weight: 500;
@@ -313,7 +320,7 @@
 
 .resumeMeta {
   margin-top: 0.375rem;
-  color: color-mix(in srgb, var(--color-ink) 72%, transparent);
+  color: var(--resume-ink);
   font-family: var(--font-inter);
   font-size: 0.8125rem;
   line-height: 1.25rem;
@@ -325,9 +332,9 @@
   height: 3rem;
   align-items: center;
   justify-content: center;
-  border: 1px solid color-mix(in srgb, var(--color-ink) 72%, transparent);
+  border: 1px solid var(--resume-ink);
   border-radius: 50%;
-  color: var(--color-ink);
+  color: var(--resume-ink);
   transition: transform 180ms ease-out;
 }
 
@@ -352,15 +359,20 @@
 }
 
 .emailLink:focus-visible,
-.links a:focus-visible,
-.resumeCallout:focus-visible {
+.links a:focus-visible {
   outline: 2px solid var(--contact-cream);
   outline-offset: 5px;
   box-shadow: 0 0 0 3px var(--color-accent);
 }
 
 .resumeCallout:focus-visible {
-  box-shadow: none;
+  outline: none;
+}
+
+.resumeFocusFrame:has(.resumeCallout:focus-visible) {
+  outline: 3px solid var(--contact-cream);
+  outline-offset: 5px;
+  box-shadow: 0 0 0 8px var(--color-accent);
 }
 
 @media (min-width: 48rem) {
